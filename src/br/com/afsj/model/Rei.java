@@ -71,4 +71,49 @@ public class Rei extends Peca{
     
         return !inimigos.posicaoLivreAtaque(x, y);
     }
+
+    /*funcionalidade em desenvolvimento
+        public boolean roque(Peca torre, ArrayPecas pecasDaMesmaCor) {
+    
+        // Regra 1: rei e torre nunca podem ter se movido
+        if (this.seMovimenteou || torre.seMovimenteou) {
+            return false;
+        }
+    
+        // Regra 2: devem estar na mesma linha
+        if (this.getPosY() != torre.getPosY()) {
+            return false;
+        }
+    
+        // Regra 3: não pode haver peças entre eles
+        int menorX = Math.min(this.getPosX(), torre.getPosX());
+        int maiorX = Math.max(this.getPosX(), torre.getPosX());
+    
+        for (int x = menorX + 1; x < maiorX; x++) {
+            if (pecasDaMesmaCor.pecaPosicao(x, this.getPosY()) != null) {
+                return false;
+            }
+        }
+    
+        // Regra 4: definir posições finais
+        int posFinalRei;
+        int posFinalTorre;
+    
+        // Roque pequeno (torre à direita)
+        if (torre.getPosX() > this.getPosX()) {
+            posFinalRei = this.getPosX() + 2;
+            posFinalTorre = this.getPosX() + 1;
+        }
+        // Roque grande (torre à esquerda)
+        else {
+            posFinalRei = this.getPosX() - 2;
+            posFinalTorre = this.getPosX() - 1;
+        }
+    
+        // Regra 5: mover logicamente as peças
+        this.mover(posFinalRei, this.getPosY());
+        torre.mover(posFinalTorre, torre.getPosY());
+    
+        return true;
+    } */
 }
