@@ -9,7 +9,16 @@ public class Rei extends Peca{
         if (posX == -1 && posY == -1) {
             return true;
         }
-            return condicoesParaSeMover(x,y);
+
+        if (!condicoesParaSeMover(x, y)) {
+            return false;
+        }
+
+        if (casaDestinoEstaEmXeque(x, y)) {
+            return false;
+        }
+
+        return true;
     }
 
     private boolean condicoesParaSeMover(int x, int y){
@@ -37,5 +46,29 @@ public class Rei extends Peca{
         }
 
         return false;
+    }
+
+        public boolean estaEmXeque() {
+        ArrayPecas inimigos;
+    
+        if (cor == Xadrez.corBRANCA) {
+            inimigos = Tabuleiro.listaPretas;
+        } else {
+            inimigos = Tabuleiro.listaBrancas;
+        }
+    
+        return !inimigos.posicaoLivreAtaque(posX, posY);
+        }
+    
+        public boolean casaDestinoEstaEmXeque(int x, int y) {
+        ArrayPecas inimigos;
+    
+        if (cor == Xadrez.corBRANCA) {
+            inimigos = Tabuleiro.listaPretas;
+        } else {
+            inimigos = Tabuleiro.listaBrancas;
+        }
+    
+        return !inimigos.posicaoLivreAtaque(x, y);
     }
 }
