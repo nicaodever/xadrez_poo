@@ -33,21 +33,6 @@ public class Rei extends Peca{
                 ((posX == x + 1) && (posY == y + 1));   //   +1  |  +1   (suldeste)
     }
 
-    private boolean roque(Peca torre){
-        if(cor == Xadrez.corBRANCA){
-            if(torre.seMovimenteou || this.seMovimenteou)
-                return false;
-
-        }
-
-        if(cor == Xadrez.corPRETA){
-            if(torre.seMovimenteou || this.seMovimenteou)
-                return false;
-        }
-
-        return false;
-    }
-
         public boolean estaEmXeque() {
         ArrayPecas inimigos;
     
